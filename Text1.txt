@@ -1,0 +1,27 @@
+void main()
+{
+	int n = 2;
+	cout << n << endl;
+	{
+		int t = 6;
+		cout << t << endl;
+	}
+	int x = 4;
+	x += 1;
+	int y = 1 || 0;
+	cout << x << endl << y;
+	while (x > 1){
+		cout << 55 << endl;
+		x -= 1;
+	}
+	if (2 == 2){
+		cout << 33 << endl;
+	}
+	else {
+		cout << 888 << endl;
+	}
+	do {
+		cout << 9009 << endl;
+	}
+	while (1 == 2);
+}
