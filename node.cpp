@@ -213,11 +213,11 @@ void DoWhileNode::Code(InstructionsClass &instr) {
 		mStatementNode->Code(instr);
 		unsigned char *address1 = instr.GetAddress();
 		mExpressionNode->CodeEvaluate(instr);
-		unsigned char * jumpAddy2 = instr.SkipIfZeroStack(); // pops a non-zero or a zero from the stack
 		unsigned char *jumpAddy = instr.Jump();
+		unsigned char * jumpAddy2 = instr.SkipIfZeroStack(); // pops a non-zero or a zero from the stack
 		unsigned char *address2 = instr.GetAddress();
 		unsigned char sizeofcode = (unsigned char)address2 - (unsigned char)address0;
-		instr.SetOffset(jumpAddy, ((unsigned char)address0 - (unsigned char)address2));
+		instr.SetOffset(jumpAddy, ((unsigned char)address0 - (unsigned char)address1));
 		instr.SetOffset(jumpAddy2, sizeofcode);
 }
 RepeatNode::RepeatNode(ExpressionNode* e, StatementNode * s)

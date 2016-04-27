@@ -14,14 +14,13 @@ void main()
 		cout << 55 << endl;
 		x -= 1;
 	}
-	if (2 == 2){
+	if (x && 0){
 		cout << 33 << endl;
 	}
 	else {
 		cout << 888 << endl;
 	}
-	do {
-		cout << 9009 << endl;
-	}
-	while (1 == 2);
+	cout << x << endl;
+	x--;
+	cout << x << endl;
 }

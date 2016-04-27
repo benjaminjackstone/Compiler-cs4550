@@ -10,13 +10,11 @@ void SymbolTable::PushScope() {
 }
 void SymbolTable::PopScope() {
 	int size = GetCount();
-	std::cout << size << std::endl;
 	int last = mScopes[mScopes.size() - 1];
 	mScopes.pop_back();
 	for (int i = size-1; i >= last; i--) {
 		Types.pop_back();
 	}
-	std::cout << GetCount() << std::endl;
 }
 bool SymbolTable::Exists(string s) {
 	for (int i = Types.size() - 1; i >= 0; i--) {

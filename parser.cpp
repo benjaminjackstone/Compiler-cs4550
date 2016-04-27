@@ -326,6 +326,20 @@ AssignmentStatementNode* Parser::AssignmentStatement() {
 		AssignmentStatementNode* a = new DivideEqualNode(i, e);
 		return a;
 	}
+	if (tt == INC_TOKEN) {
+		Match(tt);
+		ExpressionNode * e = new IntegerNode(1);
+		Match(SEMICOLON_TOKEN);
+		AssignmentStatementNode* a = new PlusEqualNode(i, e);
+		return a;
+	}
+	if (tt == DEC_TOKEN) {
+		Match(tt);
+		ExpressionNode * e = new IntegerNode(1);
+		Match(SEMICOLON_TOKEN);
+		AssignmentStatementNode* a = new MinusEqualNode(i, e);
+		return a;
+	}
 	Match(tt);
 	ExpressionNode* e = Expression();
 	Match(SEMICOLON_TOKEN);

@@ -26,9 +26,11 @@ StateMachine::StateMachine()
 	mLegalMoves[START_STATE][ENDFILE_CHAR] = ENDFILE_STATE;
 	mLegalMoves[ASSIGNMENT_STATE][EQUAL_CHAR] = EQUAL_STATE;
 	mLegalMoves[MINUS_STATE][EQUAL_CHAR] = MINUSEQUAL_STATE;
+	mLegalMoves[MINUS_STATE][MINUS_CHAR] = DEC_STATE;
 	mLegalMoves[DIVIDE_STATE][EQUAL_CHAR] = DIVIDEEQUAL_STATE;
 	mLegalMoves[TIMES_STATE][EQUAL_CHAR] = TIMESEQUAL_STATE;
 	mLegalMoves[PLUS_STATE][EQUAL_CHAR] = PLUSEQUAL_STATE;
+	mLegalMoves[PLUS_STATE][PLUS_CHAR] = INC_STATE;
 	//spinning states, start, block, comment
 	mLegalMoves[START_STATE][LPAREN_CHAR] = LPAREN_STATE;
 	mLegalMoves[START_STATE][RPAREN_CHAR] = RPAREN_STATE;
@@ -167,6 +169,8 @@ StateMachine::StateMachine()
 	mCorrespondingTokenTypes[AND_STATE] = AND_TOKEN;
 	mCorrespondingTokenTypes[OR_STATE] = OR_TOKEN;
 	mCorrespondingTokenTypes[STRING_STATE] = STRING_TOKEN;
+	mCorrespondingTokenTypes[INC_STATE] = INC_TOKEN;
+	mCorrespondingTokenTypes[DEC_STATE] = DEC_TOKEN;
 	mCorrespondingTokenTypes[ENDFILE_STATE] = ENDFILE_TOKEN;
 }
 
