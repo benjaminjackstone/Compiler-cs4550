@@ -28,12 +28,14 @@ public:
 	int * GetMem(int index); // index is 0 based.
 	void PushVariable(unsigned int index); // used by IdentifierNode
 	void PopAndStore(unsigned int index); // used by AssignmentStatementNode
-
+	void PopPushPush();
+	void Pop();
 										  // Mathematical Operators
 	void PopPopAddPush(); // Puts resulting integer on stack
 	void PopPopSubPush();
 	void PopPopMulPush();
 	void PopPopDivPush();
+	void PopPopModPush();
 
 	// Relational Operators
 	void PopPopComparePush(unsigned char relational_operator);

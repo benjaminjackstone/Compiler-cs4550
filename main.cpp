@@ -8,13 +8,13 @@
 int main() {
 	InstructionsClass instr;
 	SymbolTable *symbols = new SymbolTable();
-	Scanner *scanner = new Scanner("Text1.txt");
+	Scanner *scanner = new Scanner("Text.txt");
 	Parser parser(scanner, symbols);
 	StartNode *sn = parser.Start();
-	//sn->Interpret();
-	sn->Code(instr);
+	sn->Interpret();
+	/*sn->Code(instr);
 	instr.Finish();
-	instr.Execute();
+	instr.Execute();*/
 	delete sn;
 	return 0;
 }

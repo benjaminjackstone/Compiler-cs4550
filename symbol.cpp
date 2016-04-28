@@ -70,11 +70,18 @@ int SymbolTable::GetIndex(string s) {
 			return i;
 		}
 	}
-	//std::cerr << s << " not found in the symbol table." << std::endl;
-	//exit(0);
 	return -1; 
 }
-
+int SymbolTable::GetIndexForMC(string s) {
+	for (int i = Types.size() - 1; i >= 0; i--) {
+		if (Types[i].mLabel == s) {
+			return i;
+		}
+	}
+	std::cerr << s << " not found in the symbol table." << std::endl;
+	exit(0);
+	return -1;
+}
 // returns the index of where variable <s> is.
 // returns -1 if variable <s> is not there.
 int SymbolTable::GetCount() { 

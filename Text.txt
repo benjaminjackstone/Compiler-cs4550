@@ -7,11 +7,11 @@ void main()
 	int _integer = 0;
 	int original = n;
 	int two = 0;
-		while (n % 2 == 0 || two == 0)
+	while (n % 2 == 0)
 		{
 			cout << 2;
 			n /= 2;
-			two += 1;
+			//two += 1;
 		}
 	int i = 3;
 	while (i <= n)
@@ -32,44 +32,19 @@ void main()
 	if (prime != 1){
 		cout << 1000000001 << endl;
 	}
-	while (prime != 1){
+	
 		n = original;
 		if ((n % 2) == 0){
 			n += 1;
 		}
-	i = 3;
-	while (i <= n)
-		{
-			if (((n%i) == 0) && i != n)
-			{
+		i = 3;
+		while (i < n) {
+			if (((n%i) == 0) && (i != n) ) {
 				n += 2;
 				i = 3;
 			}
 			i += 2;
 		}
 		prime = 1;
-		cout <<  n << endl;
-	}
-	int count = 10;
-	repeat(count){
-		cout << 100 << endl;
-		count -= 2;
-	}
-	int x = 2;
-	int y = 0;
-	int z = 0;
-	int w = x || !y && !!z;
-	cout << w << endl << w << endl << endl << x << y << z;
-	if(2 == 2){
-		cout << 9009 << endl;
-		int bj = 30;
-	}
-	else {
-		cout << 5 << endl;
-		}
-	do {
-		cout << x << endl;
-		x += 1;
-	} while (x < 10);
-	cout << bj << endl;
+		cout << n << endl;
 } //eof

@@ -1,18 +1,16 @@
 void main()
 {
-	int n = 2;
-	cout << n << endl;
 	{
 		int t = 6;
-		cout << t << endl;
 	}
-	int x = 4;
-	x += 1;
+	int x = 10;
+	int t = 3;
 	int y = 1 || 0;
-	cout << x << endl << y;
-	while (x > 1){
-		cout << 55 << endl;
-		x -= 1;
+	while (x != t){
+		while (y != 3){
+			y++;
+		}
+			t++;
 	}
 	if (x && 0){
 		cout << 33 << endl;
@@ -20,7 +18,19 @@ void main()
 	else {
 		cout << 888 << endl;
 	}
-	cout << x << endl;
-	x--;
-	cout << x << endl;
+	x = 10;
+	y = 1;
+	
+	do {
+		cout << y << endl;
+		y+=2;
+		x+=1;
+		int h = 0;
+	}
+	while (x > y);
+	
+	repeat(10) {
+		cout << y << endl;
+		x = 10;
+	}
 }

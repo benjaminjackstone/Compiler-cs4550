@@ -1,15 +1,14 @@
 
 #include "scanner.h"
-#include <regex>
+//#include <regex>
 using namespace std;
 #include "statemachine.h"
-#include "symbol.h"
 #include "debug.h"
 
 Scanner::Scanner() {
 }
 
-Scanner::Scanner(std::string in)
+Scanner::Scanner(char * in)
 	:mFin(in), mLineNumber(1)
 {
 	MSG("Initializing ScannerClass object");
@@ -35,7 +34,7 @@ Token Scanner::GetNextToken() {
 		state = stateMachine.UpdateState(in, type);
 		if (state == START_STATE || state == ENDFILE_STATE) { lex = ""; }
 	} while (state != CANTMOVE_STATE);
-	if (lex.length() != 1) lex.pop_back();
+	if (lex.length() != 1) lex.erase(lex.size() - 1);
 	//lex = StripWS(lex);
 	Token tok = Token(type, lex);
 	tok.CheckReserved();

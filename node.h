@@ -216,7 +216,6 @@ public:
 	void CodeEvaluate(InstructionsClass &instr);
 private:
 	int mInteger;
-
 };
 
 class IdentifierNode : public ExpressionNode {
@@ -227,7 +226,7 @@ public:
 	int Evaluate() { return mSymbol->GetValue(mLabel); };
 	void DeclareVariable() { mSymbol->AddEntry(mLabel); };
 	void SetValue(int v) { mSymbol->SetValue(mLabel, v); };
-	int GetIndex(string s) { return mSymbol->GetIndex(s); };
+	int GetIndex(string s) { return mSymbol->GetIndexForMC(s); };
 	std::string GetLabel() { return mLabel; }
 private:
 	string mLabel;

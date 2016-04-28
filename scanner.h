@@ -6,7 +6,7 @@
 class Scanner {
 public:
 	Scanner();
-	Scanner(std::string in);
+	Scanner(char * in);
 	~Scanner();
 	Token GetNextToken();
 	Token PeekNextToken();

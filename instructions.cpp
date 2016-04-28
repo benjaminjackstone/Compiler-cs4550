@@ -2,8 +2,8 @@
 #include <assert.h>
 #include <cstdlib>
 #include <cstdio>
-using namespace std;
 #include "instructions.h"
+using namespace std;
 
 #pragma warning( disable : 4311 )
 
@@ -14,6 +14,7 @@ const unsigned char POP_EBP = 0x5D;
 const unsigned char NEAR_RET = 0xC3; // C3 hex, 195 decimal, 11000011 binary
 const unsigned char IMMEDIATE_TO_EAX = 0xB8; // followed by 4 byte value.
 const unsigned char PUSH_EAX = 0x50;
+const unsigned char PUSH_EDX = 0x52;
 const unsigned char CALL = 0xE8; // call within segment, Add 4 byte offset in reverse order
 const unsigned char POP_EAX = 0x58;
 const unsigned char EAX_TO_MEM = 0xA3; // A3 hex, Add 4 (or 8) byte address value in reverse order
@@ -129,7 +130,9 @@ void InstructionsClass::Execute()
 	f();
 	cout << "\nThere and back again!" << endl << endl;
 }
-
+void InstructionsClass::Pop(){
+	Encode(POP_EAX);
+}
 void InstructionsClass::PrintAllMachineCodes()
 {
 	for (int i = 0; i<mCurrent; i++)
@@ -144,7 +147,12 @@ void InstructionsClass::PushValue(int value)
 	Encode(value);
 	Encode(PUSH_EAX);
 }
-
+void InstructionsClass::PopPushPush()
+{
+	Encode(POP_EAX);
+	Encode(PUSH_EAX);
+	Encode(PUSH_EAX);
+}
 void InstructionsClass::Call(void * function_address)
 {
 	unsigned char * a1 = (unsigned char*)function_address;
@@ -252,6 +260,15 @@ void InstructionsClass::PopPopDivPush()
 	Encode(DIV_EAX_EBX1);
 	Encode(DIV_EAX_EBX2);
 	Encode(PUSH_EAX);
+}
+void InstructionsClass::PopPopModPush()
+{
+	Encode(POP_EBX);
+	Encode(POP_EAX);
+	Encode(CDQ);// Necessary to clear the D register for a 64 bit divide.
+	Encode(DIV_EAX_EBX1);
+	Encode(DIV_EAX_EBX2);
+	Encode(PUSH_EDX);
 }
 
 void InstructionsClass::PopPopComparePush(unsigned char relational_operator)

@@ -15,6 +15,7 @@ public:
 	void PushScope();
 	void PopScope();
 	int GetIndex(string s);
+	int GetIndexForMC(string s);
 	int GetCount();
 	std::vector<Variable> Types;
 	std::vector<int> mScopes;
